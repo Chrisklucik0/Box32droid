@@ -2,46 +2,37 @@
 
 #!/bin/bash
 
-rm ~/x
+clear
+sleep 2
+echo -e "\e[36m[+] Installing Required packages\e[0m"
+termux-setup-storage
+pkg update -y
+termux-change-repo
+pkg upgrade -y
+pkg install wget -y
+pkg install git -y
+pkg install hashdeep -y
+clear
+sleep 2
 
-echo "Installing termux-am"
-pkg install termux-am -y &>/dev/null
-
-termux-setup-storage & sleep 4 &>/dev/null
-
+echo -e "\e[33m[i] Setting up storage permissions..\e[0m"
+yes | termux-setup-storage &>/dev/null
+sleep 2
+clear
 while true; do
     if [ -d ~/storage/shared ]; then
         break
     else
-        echo "Storage permission denied"
+        echo -e "\e[31m[ERR] Storage permission denied\e[0m"
     fi
-    sleep 3
 done
+clear
+sleep 2
 
-
-
-
-
-
-echo "Installing termux packages"
-apt-get clean
-apt-get update >/dev/null 2>&1
-apt-get -y --with-new-pkgs -o Dpkg::Options::="--force-confdef" upgrade >/dev/null 2>&1
-pkg install x11-repo -y &>/dev/null
-pkg install pulseaudio -y &>/dev/null
-pkg install xwayland -y &>/dev/null
-pkg install wget -y &>/dev/null
-pkg install tsu -y &>/dev/null
-pkg install root-repo -y &>/dev/null
-pkg install patchelf -y &>/dev/null
-pkg install p7zip -y &>/dev/null
-pkg install xorg-xrandr -y &>/dev/null
-pkg install ncurses-utils -y &>/dev/null
-pkg install hashdeep -y &>/dev/null
-pkg install termux-x11-nightly -y &>/dev/null
-
-
-
+echo -e "\e[36m[+] Installing Termux-am\e[0m"
+pkg install termux-am -y &>/dev/null
+echo -e "\e[32m[✓] Termux-am Installed Successfully\e[0m"
+echo -e "\n"
 
 if [ -e $PREFIX/glibc ]; then
     echo -n "Removing previous glibc. Continue? (Y/n) "
@@ -60,17 +51,3 @@ echo "1) Install boxvidra with box86 build (6 June)"
 echo "2) Install boxvidra with wow64 build (Complete version)"
 echo ""
 echo -n "Selected number: "
-read i
-case "$i" in
-1)
-
-clear
-
-pkg install android-tools
-
-echo "Updating package manager" 
-mkdir -p $PREFIX/glibc/opt/package-manager/installed if [ "$INSTALL_WOW64" = "1" ]; then echo "PRIVATE_TOKEN=glpat-h5r7HjKoPKZPxmfg79xs PROJECT_ID=54240888">$PREFIX/glibc/opt/package-manager/token else echo "PRIVATE_TOKEN=glpat-Xs4HfrCkMpbedkPycqzP PROJECT_ID=52465323">$PREFIX/glibc/opt/package-manager/token fi . $PREFIX/glibc/opt/package-manager/token if ! wget-git-q "package-manager" "$PREFIX/glibc/opt/package-manager/package-manager"; then echo "Download failed" 
-return 1 fi . $PREFIX/glibc/opt/package-manager/package-manager sync-all if [ "$INSTALL_WOW64" = "1" ]; then sync-package wine-9.3-vanilla-wow64 else sync-package wine-ge-custom-8-25 fi ln -sf $PREFIX/glibc/opt/scripts/mobox 
-$PREFIX/bin/mobox echo "To start - type \"Box32droid\""
-
-

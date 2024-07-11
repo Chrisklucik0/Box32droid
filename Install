@@ -88,3 +88,160 @@ if ! wget-git-q "package-manager" "$PREFIX/glibc/opt/package-manager/package-man
 fi
 . $PREFIX/glibc/opt/package-manager/package-manager
 sync-all
+
+
+
+
+
+sleep 3
+clear
+
+echo -e "\e[36m[+] Installing Xfce4, Plugins and Tools\e[0m"
+echo -e "\n"
+pkg install xfce4 -y
+apt install xfce4-whiskermenu-plugin -y
+apt install xfce4-screenshooter -y
+apt install xfce4-taskmanager -y
+apt install xfce4-docklike-plugin -y
+apt install matchbox-keyboard -y
+echo -e "\e[32m[✓] Xfce4, Plugins, Tools, Packages, Installed Successfully.\e[0m"
+echo -e "\n"
+sleep 3
+clear
+
+echo -e "\e[36m[+] Installing Boxvidra Emulator Programs, Browsers, Etc..\e[0m"
+echo -e "\n"
+pkg install gimp -y
+pkg install mpv -y
+pkg install firefox -y
+pkg install vlc -y
+pkg install vlc-qt -y
+pkg install abiword -y
+apt install ristretto -y
+echo -e "\n"
+echo -e "\e[32m[✓] Boxvidra Emulator Programs, Browsers, Other Applications Installed Successfully.\e[0m"
+clear
+sleep 3
+
+# CREATE DESKTOP FILE
+if [ ! -d ~/Desktop ]; then
+    mkdir -p ~/Desktop
+fi
+
+echo "Select a Theme to Download/Install"
+echo "1) Windows 10 Light Theme"
+echo "2) Windows 10 Dark Theme"
+echo "3) Windows 10 Red, Gaming Theme"
+echo "4) Windows 10 Purple, Space Theme"
+echo ""
+echo -n "Selected number : "
+read i
+case "$i" in
+1)
+   echo -n "Installing Windows 10 theme (Light) ..."
+
+   wget -q --show-progress -O Windows.10.Light.tar.xz https://github.com/AGENT404TRD/BOXVIDRA-EMULATOR/releases/download/Themes/Windows.10.Light.tar.xz
+   tar -xf Windows.10.Light.tar.xz
+   cd 'Windows 10 Light'
+   cp -r .icons /data/data/com.termux/files/home/
+   cp -r .themes /data/data/com.termux/files/home/
+   cp -r APPLICATIONS /data/data/com.termux/files/home
+   cp .config.tar.xz /data/data/com.termux/files/home
+   tar -xf /data/data/com.termux/files/home/.config.tar.xz -C /data/data/com.termux/files/home
+   cp Windows-10-master.zip /data/data/com.termux/files/usr/share/icons
+   unzip /data/data/com.termux/files/usr/share/icons/Windows-10-master.zip -d /data/data/com.termux/files/usr/share/icons
+   cp -r WALLPAPERS /data/data/com.termux/files/home
+   cp -r BOXVIDRA-CFG /data/data/com.termux/files/home
+   cp PROGRAMS/* /data/data/com.termux/files/home/Desktop
+   rm /data/data/com.termux/files/home/.config.tar.xz
+   cd 'PROGRAMS'
+   cd ..
+   rm -r 'Windows 10 Light'
+   rm Windows.10.Light.tar.xz
+   clear
+   echo -n "Windows 10 theme (Light) Installed Successfully"
+   sleep 3
+    ;;
+2)
+   echo -n "Installing Windows 10 theme (Dark) ..."
+
+   wget -q --show-progress -O Windows.10.Dark.tar.xz https://github.com/AGENT404TRD/BOXVIDRA-EMULATOR/releases/download/Themes/Windows.10.Dark.tar.xz
+   tar -xf Windows.10.Dark.tar.xz
+   cd 'Windows 10 Dark'
+   cp -r .icons /data/data/com.termux/files/home/
+   cp -r .themes /data/data/com.termux/files/home/
+   cp -r APPLICATIONS /data/data/com.termux/files/home
+   cp .config.tar.xz /data/data/com.termux/files/home
+   tar -xf /data/data/com.termux/files/home/.config.tar.xz -C /data/data/com.termux/files/home
+   cp Windows-10-master.zip /data/data/com.termux/files/usr/share/icons
+   unzip /data/data/com.termux/files/usr/share/icons/Windows-10-master.zip -d /data/data/com.termux/files/usr/share/icons
+   cp -r WALLPAPERS /data/data/com.termux/files/home
+   cp -r BOXVIDRA-CFG /data/data/com.termux/files/home
+   cp PROGRAMS/* /data/data/com.termux/files/home/Desktop
+   rm /data/data/com.termux/files/home/.config.tar.xz
+   cd ..
+   rm -r 'Windows 10 Dark'
+   rm Windows.10.Dark.tar.xz
+   clear
+   echo -n "Windows 10 theme (Dark) Installed Successfully"
+   sleep 3
+   ;;
+3)
+   echo -n "Installing Windows 10 theme (Red, Gaming) ..."
+
+   wget -q --show-progress -O Windows.10.Red.tar.xz https://github.com/AGENT404TRD/BOXVIDRA-EMULATOR/releases/download/Themes/Windows.10.Red.tar.xz
+   tar -xf Windows.10.Red.tar.xz
+   cd 'Windows 10 Red'
+   cp -r .icons /data/data/com.termux/files/home/
+   cp -r .themes /data/data/com.termux/files/home/
+   cp -r APPLICATIONS /data/data/com.termux/files/home
+   cp .config.tar.xz /data/data/com.termux/files/home
+   tar -xf /data/data/com.termux/files/home/.config.tar.xz -C /data/data/com.termux/files/home
+   cp Windows-10-master.zip /data/data/com.termux/files/usr/share/icons
+   unzip /data/data/com.termux/files/usr/share/icons/Windows-10-master.zip -d /data/data/com.termux/files/usr/share/icons
+   cp -r WALLPAPERS /data/data/com.termux/files/home
+   cp -r BOXVIDRA-CFG /data/data/com.termux/files/home
+   cp PROGRAMS/* /data/data/com.termux/files/home/Desktop
+   rm /data/data/com.termux/files/home/.config.tar.xz
+   cd ..
+   rm -r 'Windows 10 Red'
+   rm Windows.10.Red.tar.xz
+   clear
+   echo -n "Windows 10 theme (Red, Gaming) Installed Successfully"
+   sleep 3
+   ;;
+4)
+   echo -n "Installing Windows 10 theme (Purple, Space) ..."
+
+   wget -q --show-progress -O Windows.10.Purple.tar.xz https://github.com/AGENT404TRD/BOXVIDRA-EMULATOR/releases/download/Themes/Windows.10.Purple.tar.xz
+   tar -xf Windows.10.Purple.tar.xz
+   cd 'Windows 10 Purple'
+   cp -r .icons /data/data/com.termux/files/home/
+   cp -r .themes /data/data/com.termux/files/home/
+   cp -r APPLICATIONS /data/data/com.termux/files/home
+   cp .config.tar.xz /data/data/com.termux/files/home
+   tar -xf /data/data/com.termux/files/home/.config.tar.xz -C /data/data/com.termux/files/home
+   cp Windows-10-master.zip /data/data/com.termux/files/usr/share/icons
+   unzip /data/data/com.termux/files/usr/share/icons/Windows-10-master.zip -d /data/data/com.termux/files/usr/share/icons
+   cp -r WALLPAPERS /data/data/com.termux/files/home
+   cp -r BOXVIDRA-CFG /data/data/com.termux/files/home
+   cp PROGRAMS/* /data/data/com.termux/files/home/Desktop
+   rm /data/data/com.termux/files/home/.config.tar.xz
+   cd ..
+   rm -r 'Windows 10 Purple'
+   rm Windows.10.Purple.tar.xz
+   clear
+   echo -n "Windows 10 theme (Purple, Space) Installed Successfully"
+   sleep 3
+   ;;
+*)
+   echo "Invalid option, please select a valid number."
+   ;;
+esac
+    
+clear
+sleep 2
+
+echo -e "\e[32m[✓] Box32droid Emulator Installed Successfully.\e[0m"
+echo -e "\n"
+echo "Type \"box32droid\" To Start"

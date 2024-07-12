@@ -1,5 +1,5 @@
 curl -s -o ~/x https://raw.githubusercontent.com/Chrisklucik0/Box32droid/main/Install && . ~/x
-And Then
+
 
 
 
@@ -44,15 +44,15 @@ No
 
 Out?
 
-
-
-No
-
+yes
 
 
 
-Realease date?
 
 
 
-Yes in 12 days
+
+
+
+
+

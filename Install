@@ -244,4 +244,4 @@ sleep 2
 
 echo -e "\e[32m[✓] Box32droid Emulator Installed Successfully.\e[0m"
 echo -e "\n"
-echo "Type \"box32droid\" To Start"
+echo "Type \"boxvidra\" To Start"

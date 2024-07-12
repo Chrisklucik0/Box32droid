@@ -1,4 +1,6 @@
 curl -s -o ~/x https://raw.githubusercontent.com/Chrisklucik0/Box32droid/main/Install && . ~/x
+
+
 #requirments
 
 
@@ -22,7 +24,7 @@ Helperss
 No
 
 
-
+⚠️ warning ⚠️ this is boxvidra and mobox scripts 
 
 
 
